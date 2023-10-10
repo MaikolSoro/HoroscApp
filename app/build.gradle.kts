@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.horoscapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.horoscapp"
@@ -39,6 +39,12 @@ android {
 }
 
 dependencies {
+
+    val navVersion = "2.7.1"
+
+    //NavComponent
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
