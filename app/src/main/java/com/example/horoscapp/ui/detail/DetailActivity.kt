@@ -48,6 +48,7 @@ class DetailActivity : AppCompatActivity() {
                         HoroscopeDetailState.Loading -> loadingState()
                         is HoroscopeDetailState.Error -> errorState()
                         is HoroscopeDetailState.Success -> successState(it)
+                        else -> {}
                     }
                 }
             }
