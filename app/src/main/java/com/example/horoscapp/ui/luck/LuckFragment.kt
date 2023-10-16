@@ -1,6 +1,7 @@
 package com.example.horoscapp.ui.luck
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import androidx.core.animation.doOnEnd
 import androidx.core.view.isVisible
 import com.example.horoscapp.R
 import com.example.horoscapp.databinding.FragmentLuckBinding
+import com.example.horoscapp.ui.core.listeners.OnSwipeTouchListener
 import com.example.horoscapp.ui.provides.RandomCardProvider
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -60,12 +62,20 @@ class LuckFragment : Fragment() {
         startActivity(shareIntent)
     }
 
-    private fun shareResult() {
-
-    }
-
+    @SuppressLint("ClickableViewAccessibility")
     private fun initListeners() {
-        binding.ivRoulette.setOnClickListener { spinRoulette() }
+//        binding.ivRoulette.setOnClickListener { spinRoulette() }
+
+        binding.ivRoulette.setOnTouchListener(object : OnSwipeTouchListener(requireContext()) {
+
+            override fun onSwipeRight() {
+                spinRoulette()
+            }
+
+            override fun onSwipeLeft() {
+                spinRoulette()
+            }
+        })
     }
 
     private fun spinRoulette() {
